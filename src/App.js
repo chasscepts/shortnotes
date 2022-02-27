@@ -1,11 +1,11 @@
-import './App.css';
+import { Provider } from './redux';
+import store from './app/store';
+import Panel from './components/Panel';
 
-function App() {
-  return (
-    <div className="App">
-      <h1>Short Notes</h1>
-    </div>
-  );
-}
+const App = () => (
+  <Provider store={store}>
+    <Panel />
+  </Provider>
+);
 
 export default App;
