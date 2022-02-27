@@ -44,7 +44,7 @@ export const {
   setCategories,
 } = slice.actions;
 
-export const selectNotes = (state) => state.notes.all;
+export const selectNotes = (state) => state.notes.notes;
 export const selectNote = (state) => state.notes.note;
 export const selectCategories = (state) => state.notes.categories;
 
@@ -62,7 +62,7 @@ export const loadNotesAsync = () => (dispatch, getState) => {
 
 export const loadCategoriesAsync = () => (dispatch, getState) => {
   if (getState().notes.categories.loading) return;
-  dispatch(setNotes({ loading: true }));
+  dispatch(setCategories({ loading: true }));
   getCategories()
     .then((categories) => {
       dispatch(setCategories({ items: categories, error: null, loading: false }));
@@ -81,7 +81,7 @@ export const fetchContentAsync = (note) => (dispatch) => {
   getNote(note.id)
     .then((newNote) => {
       // eslint-disable-next-line no-param-reassign
-      note.content = mark(newNote.content);
+      mark(note, newNote.content);
       dispatch(setNote({ item: note, loading: false, error: null }));
     })
     .catch((err) => dispatch(setNote({ loading: false, error: err.message })));

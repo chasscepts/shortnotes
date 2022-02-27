@@ -16,6 +16,24 @@ marked.setOptions({
   xhtml: false,
 });
 
-const mark = (text) => marked(text);
+/* eslint-disable no-param-reassign */
+const mark = (note, content) => {
+  let index = -1;
+  const markdownRegex = /```[\S]*([\s\S]*?)```/g;
+  const htmlRegex = /(<pre><code .+?>)/g;
+  const codes = [];
+  let match = markdownRegex.exec(content);
+  while (match) {
+    codes.push(match[1].trim());
+    match = markdownRegex.exec(content);
+  }
+  note.codes = codes;
+  const html = marked(content);
+  note.content = html.replace(htmlRegex, (march, p1) => {
+    index += 1;
+    return `${p1}<button class="copy-btn" type="button" data-code="${index}">Copy</button>`;
+  });
+};
+/* eslint-enable no-param-reassign */
 
 export default mark;
