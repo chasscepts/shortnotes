@@ -12,7 +12,7 @@
 
 ## Live Demo
 
-[demo](https://tram.netlify.app/)
+[demo](https://shutnotes.netlify.app/)
 
 ## Getting Started
 
