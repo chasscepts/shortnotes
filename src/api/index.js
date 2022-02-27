@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const host = 'http://127.0.0.1:3000';
+const host = 'https://shortnotes-api.herokuapp.com';
 
 const apiPath = '/api/v1/';
 
@@ -11,8 +11,8 @@ const normalizePath = (path) => {
   return p;
 };
 
-const url = (path, api = true) => {
-  const fullpath = api ? `${apiPath}${normalizePath(path)}` : path;
+const url = (path) => {
+  const fullpath = `${apiPath}${normalizePath(path)}`;
   return (new URL(fullpath, host)).href;
 };
 
