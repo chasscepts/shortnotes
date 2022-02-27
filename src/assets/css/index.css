@@ -67,40 +67,6 @@ select {
   position: relative;
 }
 
-.dim {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
-}
-
-.text-input {
-  outline: none;
-  border: 1px solid #eff;
-  padding: 8px 10px;
-  background-color: #f0f9ff;
-  display: block;
-  width: 100%;
-}
-
-.btn-blue,
-.btn-red {
-  color: #eff;
-  font-weight: bold;
-  font-size: 0.8rem;
-  padding: 4px 10px;
-}
-
-.btn-blue:hover
-.btn-red:hover {
-  opacity: 0.8;
-}
-
-.btn-blue {
-  background-color: #62b5e5;
-}
-
-.btn-red {
-  background-color: #b42107;
-}
-
 .select {
   border: 1px solid #eee;
   padding: 4px 4px 4px 10px;

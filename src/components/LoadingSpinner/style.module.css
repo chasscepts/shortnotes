@@ -31,7 +31,7 @@
   animation: lds-spinner 1.2s linear infinite;
 }
 
-.ldsSpinner div:after {
+.ldsSpinner div::after {
   content: " ";
   display: block;
   position: absolute;
